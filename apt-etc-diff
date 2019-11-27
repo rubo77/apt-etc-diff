@@ -1,11 +1,11 @@
 # exit on failure
 set -e
 
-mkdir -p /tmp/debdiff
-cd /tmp/debdiff
+mkdir -p /tmp/apt-etc-diff
+cd /tmp/apt-etc-diff
 
 if [ "$1" == "" ]; then
-  echo "usage debdiff [package]"
+  echo "usage apt-etc-diff [package]"
   exit
 fi
 
