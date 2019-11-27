@@ -3,7 +3,7 @@ shows the differences of installed files in etc
 
 ## usage
 
-    debdiff [package]
+    apt-etc-diff [package]
 
 ## author:
 
