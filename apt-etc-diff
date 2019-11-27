@@ -1,0 +1,25 @@
+# exit on failure
+set -e
+
+package=php5-fpm
+mkdir $package
+cd $package
+
+# you could also get the file from a package mirror if you have
+#  an older version of apt-get that doesn't support 'download' 
+#  or if you would like more control over what package version
+#  you are downloading.
+# (e.g. http://archive.ubuntu.com/ubuntu/pool/main/)
+apt-get download $package
+
+# deb package files are ar archives
+ar vx ${package}*.deb
+# containing some compressed tar archives
+tar xzf data.tar.gz
+# now you have the files
+
+# you can get diffs for all of the files in etc if you would like
+find etc -type f |
+while read file ; do
+    diff $file /$file
+done
