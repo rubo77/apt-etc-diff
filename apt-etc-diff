@@ -36,7 +36,9 @@ fi
 # you can get diffs for all of the files in etc if you would like
 find etc -type f |
 while read file ; do
-  diff "$file" /"$file"
+  echo "# compare /$file ..."
+  diff --suppress-common-lines -y "$file" /"$file"
+  # use -W 200 to use more columns for the left side of the diff
 done
 # exit on failure
 set -e
